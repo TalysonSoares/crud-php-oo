@@ -6,7 +6,7 @@ class AlunoController
 {
     public function listar(): void
     {
-        echo "Pagina de listar";
+        include '../views/aluno/listar.phtml';
     }
 
     public function cadastrar(): void
@@ -22,5 +22,11 @@ class AlunoController
     public function editar(): void
     {
         echo "Pagina de editar";
+    }
+    
+    public function renderizar(string $arquivo, ?array $dados = null)
+    {
+        include "../Views/aluno/{$arquivo}.phtml";
+        $dados;
     }
 }

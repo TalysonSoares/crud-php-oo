@@ -3,6 +3,7 @@
 require_once '../src/Controller/ProfessorController.php';
 require_once '../src/Controller/AlunoController.php';
 require_once '../src/Controller/CursoController.php';
+require_once '../src/Controller/SiteController.php';
 
 function criarRota(string $controllerNome, string $methodNome): array
 {
