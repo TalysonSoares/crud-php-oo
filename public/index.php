@@ -11,3 +11,7 @@ if (false === isset($rotas[$rota])) {
     echo "Erro 404";
     exit;
 }
+
+echo $rotas[$rota];
+
+//php -S localhost:8000 -t public
