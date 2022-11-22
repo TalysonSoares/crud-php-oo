@@ -1,7 +1,5 @@
 <?php
 
-require_once '../src/Controller/AlunoController.php';
-
 $rotas = require '../config/routes.php';
 
 $url = $_SERVER['REQUEST_URI']; //pegando a url acessada pelo usuario
@@ -12,6 +10,9 @@ if (false === isset($rotas[$rota])) {
     exit;
 }
 
-echo $rotas[$rota];
+$controller = $rotas[$rota]['controller'];
+$method = $rotas[$rota]['method'];
+
+(new $controller)->$method();
 
 //php -S localhost:8000 -t public
