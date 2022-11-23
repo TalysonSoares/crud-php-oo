@@ -1,6 +1,8 @@
-<?php   
+<?php
 
-declare(strict_types=1);
+declare(stricty_types=1);
+
+namespace App\Model;
 
 class Curso
 {
@@ -9,4 +11,4 @@ class Curso
     public string $descricao;
     public bool $status;
     public array $ementa;
-}   
+}
