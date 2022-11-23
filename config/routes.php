@@ -1,9 +1,9 @@
 <?php
 
-require_once '../src/Controller/ProfessorController.php';
-require_once '../src/Controller/AlunoController.php';
-require_once '../src/Controller/CursoController.php';
-require_once '../src/Controller/SiteController.php';
+use App\Controller\AlunoController;
+use App\Controller\CursoController;
+use App\Controller\ProfessorController;
+use App\Controller\SiteController;
 
 function criarRota(string $controllerNome, string $methodNome): array
 {
@@ -14,20 +14,22 @@ function criarRota(string $controllerNome, string $methodNome): array
 }
 
 $rotas = [
-    '/' => 'Pagina inicial',
+    '/' => criarRota(SiteController::class, 'inicio'),
+    
     '/alunos/listar' => criarRota(AlunoController::class, 'listar'),
     '/alunos/novo' => criarRota(AlunoController::class, 'cadastrar'),
     '/alunos/editar' => criarRota(AlunoController::class, 'editar'),
     '/alunos/excluir' => criarRota(AlunoController::class, 'excluir'),
-    '/professor/listar' => criarRota(Professor::class, 'listar'),
-    '/professor/novo' => criarRota(Professor::class, 'cadastrar'),
-    '/professor/editar' => criarRota(Professor::class, 'editar'),
-    '/professor/excluir' => criarRota(Professor::class, 'excluir'),
-    '/curso/listar' => criarRota(CursoController::class, 'listar'),
-    '/curso/novo' => criarRota(CursoController::class, 'cadastrar'),
-    '/curso/editar' => criarRota(CursoController::class, 'editar'),
-    '/curso/excluir' => criarRota(CursooController::class, 'excluir'),
-];
 
+    '/cursos/listar' => criarRota(CursoController::class, 'listar'),
+    '/cursos/novo' => criarRota(CursoController::class, 'cadastrar'),
+    '/cursos/editar' => criarRota(CursoController::class, 'editar'),
+    '/cursos/excluir' => criarRota(CursoController::class, 'excluir'),
+
+    '/professores/listar' => criarRota(ProfessorController::class, 'listar'),
+    '/professores/novo' => criarRota(ProfessorController::class, 'cadastrar'),
+    '/professores/editar' => criarRota(ProfessorController::class, 'editar'),
+    '/professores/excluir' => criarRota(ProfessorController::class, 'excluir'),
+];
 
 return $rotas;
