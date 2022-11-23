@@ -6,12 +6,12 @@ class AlunoController
 {
     public function listar(): void
     {
-        include '../views/aluno/listar.phtml';
+        $this->renderizar('listar');
     }
 
     public function cadastrar(): void
     {
-        echo "Pagina de cadastrar";
+        $this->renderizar('cadastrar');
     }
 
     public function excluir(): void

@@ -19,14 +19,14 @@ $rotas = [
     '/alunos/novo' => criarRota(AlunoController::class, 'cadastrar'),
     '/alunos/editar' => criarRota(AlunoController::class, 'editar'),
     '/alunos/excluir' => criarRota(AlunoController::class, 'excluir'),
-    '/professor/listar' => criarRota(AlunoController::class, 'listar'),
-    '/professor/novo' => criarRota(AlunoController::class, 'cadastrar'),
-    '/professor/editar' => criarRota(AlunoController::class, 'editar'),
-    '/professor/excluir' => criarRota(AlunoController::class, 'excluir'),
-    '/curso/listar' => criarRota(AlunoController::class, 'listar'),
-    '/curso/novo' => criarRota(AlunoController::class, 'cadastrar'),
-    '/curso/editar' => criarRota(AlunoController::class, 'editar'),
-    '/curso/excluir' => criarRota(AlunoController::class, 'excluir'),
+    '/professor/listar' => criarRota(Professor::class, 'listar'),
+    '/professor/novo' => criarRota(Professor::class, 'cadastrar'),
+    '/professor/editar' => criarRota(Professor::class, 'editar'),
+    '/professor/excluir' => criarRota(Professor::class, 'excluir'),
+    '/curso/listar' => criarRota(CursoController::class, 'listar'),
+    '/curso/novo' => criarRota(CursoController::class, 'cadastrar'),
+    '/curso/editar' => criarRota(CursoController::class, 'editar'),
+    '/curso/excluir' => criarRota(CursooController::class, 'excluir'),
 ];
 
 
