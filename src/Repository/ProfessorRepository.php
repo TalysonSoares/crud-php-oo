@@ -8,7 +8,7 @@ use App\Connection\DatabaseConnection;
 use App\Model\Professor;
 use PDO;
 
-class ProfessorRepositoy implements RepositoryInterface
+class ProfessorRepository implements RepositoryInterface
 {
     public const TABLE = "tb_professores";
 
