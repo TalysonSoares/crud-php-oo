@@ -12,13 +12,8 @@ class AlunoController extends AbstractController
     {   
         $rep = new AlunoRepository();
 
-        echo '<pre>';
-        print_r(
-            $rep->buscarTodos()
-        );
-        echo '</pre>';
-        die('------');
-
+        $alunos = $rep->buscarTodos();
+        
 
         $this->render('aluno/listar');
     }
