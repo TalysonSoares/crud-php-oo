@@ -6,7 +6,7 @@ use App\Connection\DatabaseConnection;
 
 include_once '../vendor/autoload.php';
 
-include '../config/database.php';
+include '../config/databse.php';
 
 var_dump(
     DatabaseConnection::abrirConexao()
