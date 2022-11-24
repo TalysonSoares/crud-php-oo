@@ -14,8 +14,9 @@ class AlunoController extends AbstractController
 
         $alunos = $rep->buscarTodos();
         
-
-        $this->render('aluno/listar');
+        $this->render('aluno/listar', [
+            'alunos' => $alunos,
+        ]);
     }
 
     public function cadastrar(): void

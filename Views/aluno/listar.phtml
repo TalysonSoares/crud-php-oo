@@ -16,6 +16,18 @@
             </tr>
         </thead>
         <tbody>
+            <?php
+                foreach ($alunos as $aluno) {
+                    echo "
+                        <tr>
+                            <td>{$aluno->id}</td>
+                            <td>{$aluno->nome}</td>
+                            <td>{$aluno->matricula}</td>
+                            <td>{$aluno->cpf}</td>
+                            <td>{$aluno->email}</td>
+                    ";
+                }
+            ?>
         </tbody>
     </table>
     
