@@ -11,11 +11,12 @@ class AlunoController extends AbstractController
     public function listar(): void
     {   
         $rep = new AlunoRepository();
-        
-        var_dump(
+
+        echo '<pre>';
+        print_r(
             $rep->buscarTodos()
         );
-
+        echo '</pre>';
         die('------');
 
 

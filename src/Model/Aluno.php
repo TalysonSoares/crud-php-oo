@@ -11,7 +11,7 @@ use DateTime; //importando a classe interna do PHP DateTime
 class Aluno extends Pessoa
 {
     public int $matricula;
-    public DateTime $dataNascimento;
+    public string $dataNascimento;
     public bool $status;
     public string $genero; //enum
 }

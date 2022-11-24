@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use PDO;
+
 use App\Connection\DatabaseConnection;
+
+use App\Model\Aluno;
 
 class AlunoRepository implements RepositoryInterface
 {
@@ -20,7 +24,7 @@ class AlunoRepository implements RepositoryInterface
         //executando o comando lá no banco de dados 
         $query->execute();
 
-        return $query->fetchAll(); //pegando os dados e transformando em um array
+        return $query->fetchAll(PDO::FETCH_CLASS, Aluno::class); //pegando os dados e transformando em um array
     }
 
     public function buscarUm(string $id): object
