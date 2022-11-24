@@ -12,11 +12,13 @@ use App\Model\Aluno;
 
 class AlunoRepository implements RepositoryInterface
 {
+    public const TABLE = 'tb_alunos';
+
     public function buscarTodos(): iterable
     {   
         $conexao = DatabaseConnection::abrirConexao();
         
-        $sql = 'SELECT * FROM tb_alunos';
+        $sql = 'SELECT * FROM ' . self::TABLE;
 
         //preparando para executar no banco
         $query = $conexao->query($sql);
