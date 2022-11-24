@@ -4,10 +4,21 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Repository\AlunoRepository;
+
 class AlunoController extends AbstractController
 {
     public function listar(): void
-    {
+    {   
+        $rep = new AlunoRepository();
+        
+        var_dump(
+            $rep->buscarTodos()
+        );
+
+        die('------');
+
+
         $this->render('aluno/listar');
     }
 
