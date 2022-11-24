@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
-class AlunoRepository
+class AlunoRepository implements RepositoryInterface
 {
     public function buscarTodos(): iterable
     {

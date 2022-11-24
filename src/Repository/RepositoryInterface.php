@@ -8,7 +8,7 @@ interface RepositoryInterface
 {
     public function buscarTodos(): iterable;
 
-    public function buscarUm(): ?object;
+    public function buscarUm(string $id): ?object;
 
     public function inserir(object $dados): object;
 
