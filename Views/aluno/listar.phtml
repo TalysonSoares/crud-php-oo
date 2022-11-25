@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             <?php
-                foreach ($alunos as $aluno) {
+                foreach ($alunos ?? [] as $aluno) {
                     echo "
                         <tr>
                             <td>{$aluno->id}</td>

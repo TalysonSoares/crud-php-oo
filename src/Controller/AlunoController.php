@@ -21,7 +21,11 @@ class AlunoController extends AbstractController
 
     public function cadastrar(): void
     {
-        $this->render('aluno/cadastrar');
+        if (true === empty($_POST)) {
+            $this->render('aluno/cadastrar');
+            return;
+        }
+        
     }
 
     public function excluir(): void
