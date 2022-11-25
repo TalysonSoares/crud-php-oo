@@ -36,7 +36,10 @@ class AlunoRepository implements RepositoryInterface
 
     public function buscarUm(string $id): object
     {
-        return new \stdClass(); 
+        $sql = "SELECT * FROM " . self::TABLE . " WHERE id = '{$id}'";
+        $query = $this->pdo->query($sql);
+        $query->execute();
+        return $query->fetchObject(Aluno::class); 
     }
 
     public function inserir(object $dados): object

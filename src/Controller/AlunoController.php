@@ -68,7 +68,12 @@ class AlunoController extends AbstractController
 
     public function editar(): void
     {
-        $this->render('aluno/editar');
+        if (true === empty($_POST)) {
+            $id = $_GET['id'];
+            $rep = new AlunoRepository();
+            $aluno = $rep->buscarUm($id);
+            $this->render('aluno/editar', [$aluno]);
+        }
     }
 
     public function relatorio(): void
