@@ -11,7 +11,7 @@ interface RepositoryInterface
     public function buscarUm(string $id): ?object;
 
     public function inserir(object $dados): object;
-
+    
     public function atualizar(object $dados, string $id): object;
 
     public function excluir(string $id): void;

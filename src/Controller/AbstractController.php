@@ -6,9 +6,11 @@ namespace App\Controller;
 
 abstract class AbstractController
 {
-    public function render(string $view, array $dados = []): void
+    public function render(string $view, ?array $dados = null): void
     {
-        extract($dados);
+        if(isset($dados)){
+            extract($dados);
+        }
 
         include_once '../views/template/header.phtml';
 
@@ -17,5 +19,10 @@ abstract class AbstractController
         include_once "../views/{$view}.phtml";
 
         include_once '../views/template/footer.phtml';
+    }
+
+    public function redirect(string $local):void
+    {
+        header('location: '. $local);
     }
 }

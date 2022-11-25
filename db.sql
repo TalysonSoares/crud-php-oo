@@ -8,7 +8,7 @@ CREATE TABLE tb_alunos (
     matricula VARCHAR(20) UNIQUE NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     status TINYINT NOT NULL,
-    genero  VARCHAR(20) NOT NULL,
+    genero VARCHAR(20) NOT NULL,
     dataNascimento DATETIME NOT NULL,
     cpf CHAR(11) UNIQUE NOT NULL
 );
@@ -22,17 +22,18 @@ CREATE TABLE tb_professores (
     cpf CHAR(11) UNIQUE NOT NULL
 );
 
-INSERT INTO tb_alunos
+INSERT INTO tb_alunos 
 (nome, matricula, email, status, genero, dataNascimento, cpf)
 VALUES
-('Maria', '123123120', 'maria@email.com', true, 'Feminino', '2001-09-12', '12345678911')
-;
+('Maria', '1234123', 'maria@email.com', true, 'Feminino', '2001-09-12', '12312312312'),
+('Chiquim', '4434123', 'chiquim@email.com', true, 'Masculino', '2000-12-31', '44455588812'),
+('Joaquim', '5534123', 'joaquim@email.com', true, 'Não informado', '1997-06-27', '09812312390');
+
+SELECT * FROM tb_alunos;
 
 INSERT INTO tb_professores
 (nome, endereco, formacao, status, cpf)
 VALUES
-('Alessandro', 'Rua barca velha 123', 'HTML, CSS, JS, React', true, '66666666666'),
-('Allan', 'Rua idelfons albano 222', 'Sabe tudo, brabissimo', true, '99999999999'),
-('Gleidson', 'Rua Oscar frança 88', 'EOQ', true, '12345678911')
-;
-
+('Alessandro','Rua barca semi nova 123', 'HTML, CSS, JS, React', true, '12345612345'),
+('Allan','Rua idelfonso albano 222, ap 1403', 'SABE TUDO, BRABISSIMO', true, '99999999999'),
+('Gleidson', 'Rua oscar frança 88', 'Formado nas ruas', true, '22222222222');

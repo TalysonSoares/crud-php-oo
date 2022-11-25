@@ -9,11 +9,11 @@ use App\Repository\AlunoRepository;
 class AlunoController extends AbstractController
 {
     public function listar(): void
-    {   
+    {
         $rep = new AlunoRepository();
 
         $alunos = $rep->buscarTodos();
-        
+
         $this->render('aluno/listar', [
             'alunos' => $alunos,
         ]);
