@@ -14,4 +14,6 @@ class Aluno extends Pessoa
     public string $dataNascimento;
     public bool $status;
     public string $genero; //enum
+
+    
 }

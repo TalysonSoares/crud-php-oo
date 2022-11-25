@@ -12,14 +12,21 @@ class AlunoRepository implements RepositoryInterface
 {
     public const TABLE = 'tb_alunos';
 
+    public PDO $pdo;
+
+    public function __construct()
+    {
+        $this->pdo = DatabaseConnection::abrirConexao();
+    }
+
     public function buscarTodos(): iterable
     {
-        $conexao = DatabaseConnection::abrirConexao();
+        // $conexao = DatabaseConnection::abrirConexao();
 
         $sql = 'SELECT * FROM ' . self::TABLE;
 
         //preparando para executar no banco
-        $query = $conexao->query($sql);
+        $query = $this->pdo->query($sql);
 
         //executando o comando lá no banco de dados
         $query->execute(); 
@@ -34,6 +41,11 @@ class AlunoRepository implements RepositoryInterface
 
     public function inserir(object $dados): object
     {
+        $matricula = date('Ymd') . substr($dados->cpf, -2);
+        $sql = "INSERT INTO " . self::TABLE . " (nome, email, cpf, matricula, status, dataNascimento, genero) " . "VALUES ('{$dados->nome}', '{$dados->email}', '{$dados->cpf}', '{$matricula}', '1', '{$dados->dataNascimento}', '$dados->genero');";
+
+        $this->pdo->query($sql);
+
         return $dados;
     } 
 
