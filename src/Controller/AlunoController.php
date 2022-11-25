@@ -60,6 +60,10 @@ class AlunoController extends AbstractController
     public function excluir(): void
     {
         $this->render('aluno/excluir');
+        $id = $_GET['id'];
+        $rep = new AlunoRepository();
+        $rep->excluir($id);
+        $this->redirect('aluno/listar');
     }
 
     public function editar(): void

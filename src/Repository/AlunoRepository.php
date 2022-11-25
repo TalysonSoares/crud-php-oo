@@ -56,5 +56,8 @@ class AlunoRepository implements RepositoryInterface
 
     public function excluir(string $id): void
     {
+        $sql = "DELETE FROM " . self::TABLE . "WHERE id = '{$id}'";
+        $query = $this->pdo->query($sql);
+        $query->execute();
     }
 }
