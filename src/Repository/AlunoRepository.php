@@ -21,8 +21,6 @@ class AlunoRepository implements RepositoryInterface
 
     public function buscarTodos(): iterable
     {
-        // $conexao = DatabaseConnection::abrirConexao();
-
         $sql = 'SELECT * FROM ' . self::TABLE;
 
         //preparando para executar no banco
@@ -36,7 +34,7 @@ class AlunoRepository implements RepositoryInterface
 
     public function buscarUm(string $id): object
     {
-        $sql = "SELECT * FROM " . self::TABLE . " WHERE id = '{$id}'";
+        $sql = "SELECT * FROM ".self::TABLE." WHERE id = '{$id}'";
         $query = $this->pdo->query($sql);
         $query->execute();
         return $query->fetchObject(Aluno::class); 
@@ -44,8 +42,19 @@ class AlunoRepository implements RepositoryInterface
 
     public function inserir(object $dados): object
     {
-        $matricula = date('Ymd') . substr($dados->cpf, -2);
-        $sql = "INSERT INTO " . self::TABLE . " (nome, email, cpf, matricula, status, dataNascimento, genero) " . "VALUES ('{$dados->nome}', '{$dados->email}', '{$dados->cpf}', '{$matricula}', '1', '{$dados->dataNascimento}', '$dados->genero');";
+        $matricula = date('Ymds') . substr($dados->cpf, -2);
+
+        $sql = "INSERT INTO " . self::TABLE . 
+            "(nome, email, cpf, matricula, status, dataNascimento, genero) " . 
+            "VALUES (
+                '{$dados->nome}', 
+                '{$dados->email}', 
+                '{$dados->cpf}', 
+                '{$matricula}', 
+                '1', 
+                '{$dados->dataNascimento}', 
+                '{$dados->genero}'
+            );";
 
         $this->pdo->query($sql);
 
@@ -54,12 +63,23 @@ class AlunoRepository implements RepositoryInterface
 
     public function atualizar(object $novosDados, string $id): object
     {
+        $sql = "UPDATE " . self::TABLE . 
+            " SET 
+                nome='{$novosDados->nome}',
+                email='{$novosDados->email}',
+                cpf='{$novosDados->cpf}',
+                dataNascimento='{$novosDados->dataNascimento}',
+                genero='{$novosDados->genero}' 
+            WHERE id = '{$id}';";
+
+        $this->pdo->query($sql);
+
         return $novosDados;
     }
 
     public function excluir(string $id): void
     {
-        $sql = "DELETE FROM " . self::TABLE . " WHERE id = '{$id}'";
+        $sql = "DELETE FROM ".self::TABLE." WHERE id = '{$id}'";
         $query = $this->pdo->query($sql);
         $query->execute();
     }
